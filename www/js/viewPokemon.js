@@ -15,7 +15,7 @@ function ask_for_random_id(){
   	++pokemon_list_index;
   	//Name = Resp.Name; 
   	Name = getNameFromIndex(Index);
-    var Url = name_to_image_link(Name);//getNameFromIndex(Index) + End;    
+    var Url = "https://f002.backblazeb2.com/file/pokemon/PokemonSpritesFinal/1.png";//name_to_image_link(Name);//getNameFromIndex(Index) + End;    
     //var Url = "F:\\Python27\\PokemonSprites\\charizard\\Normal\\1.png";
     console.log(Url);   
     var div = make_pokemon_card(Url,Name,pokemon_list_index);
