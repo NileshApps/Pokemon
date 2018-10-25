@@ -66,7 +66,7 @@ function showPokemonInfo(id){
 	El.style.display = "block";
 }
 function name_to_image_link(Name){
-	var Base = "img/PokemonSpritesFinal/";
+	var Base = "https://drive.google.com/open?id=1R2IjZ2Gv3J2dvowm_tuXK1ppylihSWIx/PokemonSpritesFinal/";
 	var End = "/normal/1.png";
 	var Url = Base + Name + End;
 	return Url;
