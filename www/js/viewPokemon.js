@@ -67,8 +67,9 @@ function showPokemonInfo(id){
 	El.style.display = "block";
 }
 function name_to_image_link(Name){
-	var Base = "img/PokemonSpritesFinal/";
-	var End = "/normal/1.png";
+	//var Base = "img/PokemonSpritesFinal/";
+	var Base = "https://img.pokemondb.net/sprites/x-y/normal/"
+	var End = ".png";
 	var Url = Base + Name + End;
 	return Url;
 }
