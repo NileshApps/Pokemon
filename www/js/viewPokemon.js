@@ -4,23 +4,29 @@ function ask_for_random_id(){
 	var Display = document.getElementById("pokemonDisplay");		       
 	var request = new XMLHttpRequest();
 	request.open('GET', 'https://flasktest23.herokuapp.com/login', true);	
-	request.onload = function () {  	
+	request.onload = function () {  
+	if (this.status == 200){	
 //  	console.log(this.response);  		
 	//Display.innerHTML = '';
-  	Index = this.response;
-  	var Resp = JSON.parse(this.response);
-  	console.log(Resp);  	
+  	Index = this.response;  	  	  	
+  	var Resp = JSON.parse(this.response);  	 
   	Index = Resp;
   	pokemon_list.push(Resp);
   	++pokemon_list_index;
   	//Name = Resp.Name; 
   	Name = getNameFromIndex(Index);
     //var Url = "https://f002.backblazeb2.com/file/pokemon/PokemonSpritesFinal/1.png";
+    //var Url = "https://img.pokemondb.net/sprites/x-y/normal/bulbasaur.png"
     var Url = name_to_image_link(Name);//getNameFromIndex(Index) + End;    
     //var Url = "F:\\Python27\\PokemonSprites\\charizard\\Normal\\1.png";
     console.log(Url);   
     var div = make_pokemon_card(Url,Name,pokemon_list_index);
+    document.getElementById('waiting').style.display = "none";
     Display.appendChild(div);
+	}
+	else{
+		ask_for_random_id();
+	}
 	}
 	request.send();	
 	return this.response;
@@ -67,9 +73,9 @@ function showPokemonInfo(id){
 	El.style.display = "block";
 }
 function name_to_image_link(Name){
-	//var Base = "img/PokemonSpritesFinal/";
-	var Base = "https://img.pokemondb.net/sprites/x-y/normal/"
-	var End = ".png";
+	var Base = "img/PokemonSpritesFinal/";
+	//var Base = "https://img.pokemondb.net/sprites/x-y/normal/"
+	var End = "/Normal/1.png";
 	var Url = Base + Name + End;
 	return Url;
 }
